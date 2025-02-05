@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:01:24 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/05 17:41:19 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:49:50 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ int main(void)
 	data.mlx_ptr = mlx_init();
 	if (!data.mlx_ptr)
 		return (0);
-	data.mlx_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "Fil De Fer");
+	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "Fil De Fer");
 	if (!data.win_ptr)
 	{
 		mlx_destroy_display(data.mlx_ptr);
 		free(data.mlx_ptr);
 		return (0);
 	}
-	// mlx_key_hook(data.win_ptr, handle_intput, &data);
+	mlx_key_hook(data.win_ptr, handle_intput, &data);
 	mlx_loop(data.mlx_ptr);
 }
