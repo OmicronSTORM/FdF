@@ -6,7 +6,7 @@
 #    By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:26:39 by jowoundi          #+#    #+#              #
-#    Updated: 2025/02/10 14:00:55 by jowoundi         ###   ########.fr        #
+#    Updated: 2025/02/10 17:49:30 by jowoundi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,13 @@ LIBFT_DIR = ./libft
 MINILIBX_DIR = ./minilibx-linux
 LIBFT = $(LIBFT_DIR)/libft.a
 MINILIB = $(MINILIBX_DIR)/libmlx.a
-INCLUDES = -I ./inc -I $(LIBFT_DIR) -I $(MINILIBX_DIR)
+INCLUDES = -I ./header -I $(LIBFT_DIR) -I $(MINILIBX_DIR)
 
 SRC_DIR = src/
 OBJ_DIR = obj/
 
 # Source files from the src directory
-SRCS =  main.c close_window.c
+SRCS =  main.c close_window.c save_point.c
 
 OBJS = $(patsubst %.c, $(OBJ_DIR)%.o, $(SRCS))
 

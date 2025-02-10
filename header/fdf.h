@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:21 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/10 14:36:47 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:39:01 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@
 # include <string.h>
 # include <unistd.h>
 
-typedef struct s_mlx_data
+typedef struct	s_mlx_data
 {
 	void	*mlx;
 	void	*win;
 }		t_data;
 
-typedef struct s_img_data
+typedef struct	s_img_data
 {
 	void	*img;
 	char	*address;
@@ -41,7 +41,14 @@ typedef struct s_img_data
 	int		endian;
 }		t_img_data;
 
+typedef struct	s_dot
+{
+	int		x;
+	int		y;
+	char	*z;
+}		t_dot;
 
 int	handle_intput(int keysym, t_data *data);
+int	stock_point(int fd);
 
 #endif
