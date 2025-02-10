@@ -6,14 +6,14 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:21 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/06 16:31:56 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/10 14:36:47 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# define WIDTH			1280
+# define WIDTH			1080
 # define HEIGHT			1080
 
 # include "../libft/libft.h"
@@ -40,5 +40,8 @@ typedef struct s_img_data
 	int		line_lenght;
 	int		endian;
 }		t_img_data;
+
+
+int	handle_intput(int keysym, t_data *data);
 
 #endif
