@@ -6,7 +6,7 @@
 #    By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:26:39 by jowoundi          #+#    #+#              #
-#    Updated: 2025/02/10 17:49:30 by jowoundi         ###   ########.fr        #
+#    Updated: 2025/02/11 19:05:28 by jowoundi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRC_DIR = src/
 OBJ_DIR = obj/
 
 # Source files from the src directory
-SRCS =  main.c close_window.c save_point.c
+SRCS =  main.c close_window.c save_point.c place_pixel.c
 
 OBJS = $(patsubst %.c, $(OBJ_DIR)%.o, $(SRCS))
 

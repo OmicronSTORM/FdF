@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:21 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/10 18:39:01 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:04:56 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,13 @@ typedef struct	s_img_data
 
 typedef struct	s_dot
 {
-	int		x;
-	int		y;
-	char	*z;
+	int	x;
+	int	y;
+	int	z;
 }		t_dot;
 
-int	handle_intput(int keysym, t_data *data);
-int	stock_point(int fd);
+int		handle_intput(int keysym, t_data *data);
+t_dot	stock_point(int fd);
+void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color, t_dot point);
 
 #endif

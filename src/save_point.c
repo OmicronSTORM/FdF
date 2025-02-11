@@ -6,31 +6,30 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:32:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/10 19:29:33 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:04:07 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/fdf.h"
+#include "fdf.h"
 
-void static	count(char *line, int j)
+static t_dot	count(char *line, t_dot dot)
 {
-	t_dot	dot;
-	int		i;
+	int	i;
 
-	dot.x = 0;
 	i = 0;
+	dot.x = 0;
 	while (line[i])
 		{
-			if (i != ' ')
-			{
-				dot.x++;
-			}
-			i++;
-			printf("DX: %d\n", dot.x);
+			while (line[i] && line[i] != ' ')
+				i++;
+			dot.x++;
+			while (line[i] && line[i] == ' ')
+				i++;
 		}
+	return (dot);
 }
 
-int	stock_point(int fd)
+t_dot	stock_point(int fd)
 {
 	t_dot 	dot;
 	char	*line;
@@ -43,19 +42,12 @@ int	stock_point(int fd)
 		line = get_next_line(fd);
 		if (!line)
 			break;
-		count(line, j);
+		dot = count(line, dot);
 		dot.y++;
 		j++;
 		free(line);
 	}
-	printf("x: %d\n y: %d\n", dot.x, dot.y);
-}
-
-int	main()
-{
-	int fd;
-
-	fd = open("../maps/test_maps/10-2.fdf", O_RDONLY);
-	stock_point(fd);
-	return (0);
+	printf("x: %d\ny: %d\n", dot.x, dot.y);
+	close(fd);
+	return (dot);
 }
