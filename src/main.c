@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:01:24 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/11 19:12:03 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:45:22 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	main(int ac, char **av)
 	t_img_data	img;
 	t_dot		map;
 	int			fd;
+	int			dist;
 
+	dist = 30;
 	if (!av[1])
 		return (ft_printf("Il manque un truc bg\n"), 0);
 	while (ac)
@@ -37,7 +39,7 @@ int	main(int ac, char **av)
 		}
 		img.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
 		img.address = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_lenght, &img.endian);
-		my_mlx_pixel_put(&img, WIDTH/4, HEIGHT/4, 0x0000FF00, map);
+		my_mlx_pixel_put(&img, WIDTH/8, HEIGHT/1.8, 0x0000FF00, map, dist);
 		mlx_put_image_to_window(data.mlx, data.win, img.img, 0, 0);
 		mlx_key_hook(data.win, handle_intput, &data);
 		mlx_loop(data.mlx);
