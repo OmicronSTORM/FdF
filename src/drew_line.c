@@ -6,14 +6,15 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:27:42 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/12 17:28:18 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:48:06 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
- procédure tracerSegment(entier x1, entier y1, entier x2, entier y2) est
-  déclarer entier dx, dy;
+int tracerSegment(int x1, int y1, int x2, int y2)
+{ est
+	déclarer entier dx, dy;
   
   si (dx ← x2 - x1) ≠ 0 alors
     si dx > 0 alors
@@ -174,3 +175,4 @@
   fin si ;
   // le pixel final (x2, y2) n’est pas tracé.
 fin procédure ;
+}
