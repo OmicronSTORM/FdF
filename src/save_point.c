@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:32:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/11 19:08:53 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/12 15:44:00 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ static t_dot	count(char *line, t_dot dot)
 	return (dot);
 }
 
-t_dot	stock_point(int fd)
+t_dot	stock_point(char *src)
 {
 	t_dot 	dot;
 	char	*line;
 	int		j;
+	int		fd;
 
+	fd = open(src, O_RDONLY);
 	j = 0;
 	dot.y = 0;
 	while (1)

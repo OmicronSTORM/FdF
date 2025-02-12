@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:01:24 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/12 14:45:22 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/12 16:04:55 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@ int	main(int ac, char **av)
 	t_data		data;
 	t_img_data	img;
 	t_dot		map;
-	int			fd;
 	int			dist;
+	char		*src;
 
-	dist = 30;
+	dist = 25;
 	if (!av[1])
 		return (ft_printf("Il manque un truc bg\n"), 0);
+	if (av[2])
+		return (ft_printf("Trop d'arguments\n"), 0);
 	while (ac)
 	{	
-		fd = open("maps/test_maps/42.fdf", O_RDONLY);
-		map = stock_point(fd);
+		src = av[1];
+		map = stock_point(src);
 		data.mlx = mlx_init();
 		if (!data.mlx)
 			return (0);
