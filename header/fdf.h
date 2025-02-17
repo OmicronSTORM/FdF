@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:21 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/14 08:53:46 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:43:51 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct	s_dot
 
 int		handle_intput(int keysym, t_data *data);
 t_dot	stock_point(char *src);
-void	place_pixel(t_img_data *data, int x, int y, int color, t_dot point, int dist);
-void	ft_linkpoints(t_img_data *data, t_dot map, t_dot dist);
+void	place_pixel(t_img_data *data, int x, int y);
+void	drawline(t_img_data *data,t_dot *a, t_dot *b);
 
 #endif

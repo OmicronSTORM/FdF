@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:01:24 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/14 08:00:11 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:14:01 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int ac, char **av)
 	t_data		data;
 	t_img_data	img;
 	t_dot		map;
-	t_lines		line;
 	char		*src;
 
 	if (!av[1])
