@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   drew_line.c                                        :+:      :+:    :+:   */
+/*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 05:35:42 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/17 19:00:33 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:31:14 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,9 @@ void	drawline(t_img_data *data,t_dot *a, t_dot *b)
 		slope_less_than_one(data, dx, dy, a);
 	else
 		slope_bigger_than_one(data, dx, dy, a);
+}
+
+void	coordonate(t_img_data *data, t_dot maps)
+{
+	
 }
