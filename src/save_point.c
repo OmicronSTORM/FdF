@@ -6,50 +6,50 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:32:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/12 15:44:00 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:41:11 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static t_dot	count(char *line, t_dot dot)
+static t_map	count(char *line, t_map map)
 {
 	int	i;
 
 	i = 0;
-	dot.x = 0;
+	map.size_lines = 0;
 	while (line[i])
 		{
 			while (line[i] && line[i] != ' ')
 				i++;
-			dot.x++;
+			map.size_lines++;
 			while (line[i] && line[i] == ' ')
 				i++;
 		}
-	return (dot);
+	return (map);
 }
 
-t_dot	stock_point(char *src)
+t_map	stock_point(char *src)
 {
-	t_dot 	dot;
+	t_map	map;
 	char	*line;
 	int		j;
 	int		fd;
 
 	fd = open(src, O_RDONLY);
 	j = 0;
-	dot.y = 0;
+	map.nbr_lines = 0;
 	while (1)
 	{
 		line = get_next_line(fd);
 		if (!line)
 			break;
-		dot = count(line, dot);
-		dot.y++;
+		map = count(line, map);
+		map.nbr_lines++;
 		j++;
 		free(line);
 	}
-	printf("x: %d\ny: %d\n", dot.x, dot.y);
+	printf("x: %d\ny: %d\n", map.size_lines, map.nbr_lines);
 	close(fd);
-	return (dot);
+	return (map);
 }
