@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 05:35:42 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/18 17:34:01 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:25:29 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,23 +68,27 @@ static void	slope_bigger_than_one(t_img_data *data, int dx, int dy, t_dot *a)
 	}
 }
 
-void	drawline(t_img_data *data,t_dot *a, t_dot *b)
+void	drawline(t_img_data *data, t_dot a, t_dot b)
 {
 	int	dx;
 	int	dy;
 
-	dx = b->x - a->x;
-	dy = b->y - a->y;
+	dx = b.x - a.x;
+	dy = b.y - a.x;
 	if (abs(dx) > abs(dy))
 		slope_less_than_one(data, dx, dy, a);
 	else
 		slope_bigger_than_one(data, dx, dy, a);
 }
 
-void	coordonate(t_img_data *data, t_dot maps)
+void	coordonate(t_img_data *data, t_map map)
 {
-	t_dot	*a;
-	t_dot	*b;
-	
-	
+	int		i;
+
+	i = 0;
+	map.total_points = map.nbr_lines * map.size_lines;
+	while (i < map.total_points)
+	{
+		drawline(data, map.points[i], map.points[i + 1]);
+	}
 }

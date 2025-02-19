@@ -6,11 +6,11 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:32:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/18 17:41:11 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/19 15:39:50 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../header/fdf.h"
 
 static t_map	count(char *line, t_map map)
 {
@@ -18,14 +18,10 @@ static t_map	count(char *line, t_map map)
 
 	i = 0;
 	map.size_lines = 0;
-	while (line[i])
-		{
-			while (line[i] && line[i] != ' ')
-				i++;
-			map.size_lines++;
-			while (line[i] && line[i] == ' ')
-				i++;
-		}
+	char **spl = ft_split(line, ' ');
+	while (i++, spl[i])
+		;
+	map.size_lines = i;
 	return (map);
 }
 
