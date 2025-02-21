@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:21 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/18 17:41:24 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/20 16:14:33 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,13 @@ typedef struct	s_map
 {
 	int		size_lines;
 	int		nbr_lines;
-	t_dot	points;
+	t_dot	*points;
+	int		total_points;
 }		t_map;
 
 int		handle_intput(int keysym, t_data *data);
 t_map	stock_point(char *src);
 void	place_pixel(t_img_data *data, int x, int y);
-void	coordonate(t_img_data *data, t_dot maps);
+void	coordonate(t_img_data *data, t_map maps);
 
 #endif

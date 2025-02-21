@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:01:24 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/19 16:01:46 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/20 17:09:11 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	main(int ac, char **av)
 		}
 		img.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
 		img.address = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_lenght, &img.endian);
+		coordonate(&img, map);
 		mlx_put_image_to_window(data.mlx, data.win, img.img, 0, 0);
 		mlx_key_hook(data.win, handle_intput, &data);
 		mlx_loop(data.mlx);

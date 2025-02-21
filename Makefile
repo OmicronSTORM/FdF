@@ -6,12 +6,12 @@
 #    By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:26:39 by jowoundi          #+#    #+#              #
-#    Updated: 2025/02/18 17:25:19 by jowoundi         ###   ########.fr        #
+#    Updated: 2025/02/20 17:46:42 by jowoundi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 GREEN   = "\\033[32m"
 YELLOW	= "\\033[33m"
@@ -27,7 +27,7 @@ SRC_DIR = src/
 OBJ_DIR = obj/
 
 # Source files from the src directory
-SRCS = main.c close_window.c save_point.c place_pixel.c draw_line.c coordonate.c
+SRCS = main.c close_window.c save_point.c place_pixel.c draw_line.c
 
 OBJS = $(patsubst %.c, $(OBJ_DIR)%.o, $(SRCS))
 
@@ -57,9 +57,9 @@ FDF_LOGO = "\033[5;36m\
 \033[0m"
 
 
-all: $(LIBFT) $(MINILIB) $(NAME)
+all:  $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(LIBFT) $(MINILIB) $(OBJS)
 	@printf "\n"
 	@printf $(FDF_LOGO)
 	@echo "$(GREEN)Linking objects to create executable...$(NC)"

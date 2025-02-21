@@ -6,11 +6,11 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:32:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/19 15:39:50 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/02/20 14:56:51 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/fdf.h"
+#include "fdf.h"
 
 static t_map	count(char *line, t_map map)
 {
@@ -18,7 +18,8 @@ static t_map	count(char *line, t_map map)
 
 	i = 0;
 	map.size_lines = 0;
-	char **spl = ft_split(line, ' ');
+	char **spl = NULL;
+	spl = ft_split(line, ' ');
 	while (i++, spl[i])
 		;
 	map.size_lines = i;
@@ -35,6 +36,7 @@ t_map	stock_point(char *src)
 	fd = open(src, O_RDONLY);
 	j = 0;
 	map.nbr_lines = 0;
+	line = NULL;
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -45,7 +47,7 @@ t_map	stock_point(char *src)
 		j++;
 		free(line);
 	}
-	printf("x: %d\ny: %d\n", map.size_lines, map.nbr_lines);
+	// printf("x: %d\ny: %d\n", map.size_lines, map.nbr_lines);
 	close(fd);
 	return (map);
 }
