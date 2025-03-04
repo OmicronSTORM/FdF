@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 05:35:42 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/21 16:03:20 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/03 15:36:13 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ void	coordonate(t_img_data *data, t_map map)
 		point.y = 0;
 		while (point.y < HEIGHT)
 		{
+			// printf("%d\n", point.y);
 			if (data && map.points)
 			{
-				printf("YOOOOOOOOOOO\n");
 				drawline(data, map.points[i], map.points[i + 1]);
 			}
 			point.y++;

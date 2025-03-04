@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:32:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/02/20 14:56:51 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/04 13:39:23 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ t_map	stock_point(char *src)
 		j++;
 		free(line);
 	}
-	// printf("x: %d\ny: %d\n", map.size_lines, map.nbr_lines);
 	close(fd);
 	return (map);
 }
