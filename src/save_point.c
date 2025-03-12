@@ -6,47 +6,92 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:32:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/04 13:39:23 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:35:03 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static t_map	count(char *line, t_map map)
+static t_map	count_line(char *line, t_map map)
 {
-	int	i;
+	char	**sep;
+	int		i;
 
 	i = 0;
 	map.size_lines = 0;
-	char **spl = NULL;
-	spl = ft_split(line, ' ');
-	while (i++, spl[i])
-		;
-	map.size_lines = i;
+	sep = ft_split(line, ' ');
+	while (i++, sep[i])
+		map.size_lines++;
+	return (map);
+}
+
+static t_map	read_line(char *line, t_map map, int y)
+{
+	int		i;
+	int		x;
+	int		j;
+	char	**sep;
+
+	i = 0;
+	x = 0;
+	y -= 1;
+	j = y * map.size_lines;
+	sep = ft_split(line, ' ');
+	while (sep[i])
+	{
+		map.point[j].x = x;
+		map.point[j].y = y;
+		map.point[j].z = ft_atoi(sep[i]);
+		x++;
+		i++;
+		j++;
+	}
+	return (map);
+}
+
+t_map	stock_line(char *src, t_map map)
+{
+	int		y;
+	int		fd;
+	char	*line;
+
+	y = 0;
+	fd = open(src, O_RDONLY);
+	map.total_points = map.size_lines * map.nbr_lines;
+	map.point = malloc(sizeof(char *) * map.total_points);
+	line = NULL;
+	while (1)
+	{
+		y++;
+		line = get_next_line(fd);
+		if (!line)
+			break;
+		map = read_line(line, map, y);
+		free(line);
+	}
+	close(fd);
 	return (map);
 }
 
 t_map	stock_point(char *src)
 {
-	t_map	map;
 	char	*line;
-	int		j;
 	int		fd;
+	t_map	map;
 
-	fd = open(src, O_RDONLY);
-	j = 0;
 	map.nbr_lines = 0;
 	line = NULL;
+	fd = open(src, O_RDONLY);
 	while (1)
 	{
 		line = get_next_line(fd);
 		if (!line)
 			break;
-		map = count(line, map);
+		map = count_line(line, map);
 		map.nbr_lines++;
-		j++;
 		free(line);
 	}
 	close(fd);
+	map = stock_line(src, map);
 	return (map);
 }
