@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:31:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/14 18:54:43 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/14 19:40:47 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,36 @@ t_map	ft_center(t_map info)
 	center_x = center_x - ((info.size_lines / 2) * info.dist);
 	center_y = center_y + ((info.nbr_lines / 2) * info.dist);
 	info.point[0].projected_x = center_x;
-	info.point[0].projected_y = center_y;
+	info.point[0].projected_y = center_y + (info.point[0].z * info.dist);
 	return (info);
 }
 
 t_map	ft_set_point(t_map info)
 {
 	int	i;
-	int	trans_x;
-	int	trans_y;
+	int	j;
+	int	k;
+	int	temp_x;
+	int	temp_y;
 
 	i = 0;
-	trans_x = info.dist;
-	trans_y = info.dist / 2;
+	j = 0;
+	k = 1;
+	temp_x = info.point[0].x;
+	temp_y - info.point[0].y;
+	while (i < info.nbr_lines)
+	{
+		while (j < info.size_lines)
+		{
+			info.point[k].projected_x = temp_x + info.dist;
+			info.point[k].projected_y = temp_y + (info.dist * info.point[k].z);
+			temp_x += info.dist;
+			temp_y += info.dist;
+			k++;
+			j++;
+		}
+		
+	}
 	return (info);
 }
 
