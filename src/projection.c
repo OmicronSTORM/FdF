@@ -6,28 +6,42 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:31:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/12 17:56:37 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/14 18:54:43 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_center(t_map *info)
+t_map	ft_center(t_map info)
 {
 	int	center_x;
 	int	center_y;
 
 	center_x = WIDTH / 2;
 	center_y = HEIGHT / 2;
-	center_x = center_x - (((float)info->size_lines / 2) * info->dist);
-	center_y = center_y + (((float)info->nbr_lines / 2) * info->dist);
-	
+	center_x = center_x - ((info.size_lines / 2) * info.dist);
+	center_y = center_y + ((info.nbr_lines / 2) * info.dist);
+	info.point[0].projected_x = center_x;
+	info.point[0].projected_y = center_y;
+	return (info);
+}
+
+t_map	ft_set_point(t_map info)
+{
+	int	i;
+	int	trans_x;
+	int	trans_y;
+
+	i = 0;
+	trans_x = info.dist;
+	trans_y = info.dist / 2;
+	return (info);
 }
 
 t_map	ft_projection(t_map info)
 {
-	int	i;
-
-	i = 0;
-	ft_center(&info)
+	info.dist = 20;
+	info = ft_center(info);
+	info = ft_set_point(info);
+	return (info);
 }

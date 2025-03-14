@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:21 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/12 17:28:48 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:12:31 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ typedef struct	s_dot
 	int	x;
 	int	y;
 	int	z;
-	float	projected_x;
-	float	projected_y;
+	int	projected_x;
+	int	projected_y;
 }		t_dot;
 
 typedef struct	s_map
@@ -70,5 +70,6 @@ void	place_pixel(t_img_data *data, int x, int y);
 void	drawline(t_img_data *img, t_map info);
 void	mlx_start(t_data data, t_img_data img);
 int		check(char **av);
+t_map	ft_projection(t_map info);
 
 #endif

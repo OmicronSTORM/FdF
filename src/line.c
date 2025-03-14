@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:55:41 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/12 17:28:31 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/14 17:45:30 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	drawline(t_img_data *img, t_map info)
 	j = 0;
 	a.x = WIDTH / 4;
 	a.y = HEIGHT / 3;
-	info.dist = 20;
 	tmp_i = a.x;
 	while (i < info.size_lines)
 	{

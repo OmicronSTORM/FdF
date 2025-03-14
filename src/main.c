@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:01:24 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/06 18:20:59 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:10:34 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int ac, char **av)
 	{	
 		src = av[1];
 		map = stock_point(src);
+		map = ft_projection(map);
 		data.mlx = mlx_init();
 		if (!data.mlx)
 			return (0);
