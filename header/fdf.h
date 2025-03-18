@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:21 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/14 15:12:31 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/18 17:01:37 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define WIDTH			1920
 # define HEIGHT			1080
+# define PI				3,141592653589
 
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"

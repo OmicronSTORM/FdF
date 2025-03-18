@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:55:41 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/17 20:54:48 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/18 17:59:14 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,28 @@
 void	add_line(t_img_data *img, t_dot a, t_dot b, t_map info)
 {
 	int	i;
+	int	x;
+	int	y;
 
 	i = 0;
 	info.dx = b.projected_x - a.projected_x;
 	info.dy = b.projected_y - a.projected_y;
-	
+	if (info.dx > info.dy)
+		info.dist = info.dx;
+	else
+		info.dist = info.dy;
+	info.inc_x = info.dx / (float)info.dist;
+	info.inc_y = info.dy / (float)info.dist;
+	x = a.projected_x;
+	y = a.projected_y;
+	while (i <= info.dist)
+	{
+		if ((x > 0 && x < WIDTH) && (y > 0 && y < HEIGHT))
+			place_pixel(img, x, y);
+		x += info.inc_x;
+		y += info.inc_y;
+		i++;
+	}
 }
 
 void	drawline(t_img_data *img, t_map info)
@@ -42,59 +59,3 @@ void	drawline(t_img_data *img, t_map info)
 		i++;
 	}
 }
-
-// void	add_line(t_img_data *img, t_map info, t_dot start, t_dot end)
-// {
-// 	int		i;
-
-// 	i = 0;
-// 	info.dx = abs(end.x - start.x);
-// 	info.dy = abs(end.y - start.y);
-// 	info.inc_x = info.dx / info.dist;
-// 	info.inc_y = info.dy / info.dist;
-// 	while (i < info.dx)
-// 	{
-// 		place_pixel(img, start.x, start.y);
-// 		start.x += info.inc_x;
-// 		i++;
-// 	}
-// 	i = 0;
-// 	while (i < info.dy)
-// 	{
-// 		place_pixel(img, start.x, start.y);
-// 		start.y += info.inc_y;
-// 		i++;
-// 	}
-// 	// s = (float)info.dy / (float)info.dx;
-// 	// printf("%f\n", s);
-// }
-
-// void	drawline(t_img_data *img, t_map info)
-// {
-// 	int		i;
-// 	int		j;
-// 	int		tmp_i;
-// 	t_dot	a;
-// 	t_dot	b;
-
-// 	i = 0;
-// 	j = 0;
-// 	a.x = WIDTH / 4;
-// 	a.y = HEIGHT / 3;
-// 	tmp_i = a.x;
-// 	while (i < info.size_lines)
-// 	{
-// 		b.x = a.x + info.dist;
-// 		b.y = a.y + info.dist;
-// 		add_line(img, info, a, b);
-// 		i++;
-// 		a.x += info.dist;
-// 		if (i == info.size_lines && j < info.nbr_lines)
-// 		{
-// 			a.y += info.dist;
-// 			j++;
-// 			a.x = tmp_i;
-// 			i = 0;
-// 		}
-// 	}
-// }
