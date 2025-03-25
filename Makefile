@@ -6,7 +6,7 @@
 #    By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:26:39 by jowoundi          #+#    #+#              #
-#    Updated: 2025/03/17 16:08:15 by jowoundi         ###   ########.fr        #
+#    Updated: 2025/03/24 18:02:43 by jowoundi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ $(NAME): $(LIBFT) $(MINILIB) $(OBJS)
 	@printf "\n"
 	@printf $(FDF_LOGO)
 	@echo "$(GREEN)Linking objects to create executable...$(NC)"
-	@$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -L$(MINILIBX_DIR) -lft -lmlx -lX11 -lXext -lm -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -L$(MINILIBX_DIR) -lft -lmlx -lX11 -lXext -lm -o$(NAME)
 	@echo "$(GREEN)Executable $(NAME) created!$(NC)"
 
 $(LIBFT):

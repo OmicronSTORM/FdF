@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:21 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/18 17:01:37 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:56:32 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define WIDTH			1920
 # define HEIGHT			1080
-# define PI				3,141592653589
+# define PI				3.141592653589
 
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
@@ -51,6 +51,18 @@ typedef struct	s_dot
 	int	projected_y;
 }		t_dot;
 
+typedef struct s_projection
+{
+	float	center_x;
+	float	center_y;
+	float	scale;
+	float	scale_x;
+	float	scale_y;
+	float	x_range;
+	float	y_range;
+}		t_projection;
+
+
 typedef struct	s_map
 {
 	int		size_lines;
@@ -58,19 +70,21 @@ typedef struct	s_map
 	t_dot	*point;
 	int		total_points;
 	int		color;
-	float		dist;
-	float		dx;
-	float		dy;
-	float		inc_x;
-	float		inc_y;
+	float	inc_x;
+	float	inc_y;
+	int		scale;
+	int		x_max;
+	int		y_max;
+	int		x_min;
+	int		y_min;
 }		t_map;
 
 int		handle_intput(int keysym, t_data *data);
 t_map	stock_point(char *src);
 void	place_pixel(t_img_data *data, int x, int y);
 void	drawline(t_img_data *img, t_map info);
-void	mlx_start(t_data data, t_img_data img);
+void	mlx_start(t_data data, t_img_data img, char *);
 int		check(char **av);
-t_map	ft_projection(t_map info);
+void	ft_projection(t_map *info);
 
 #endif

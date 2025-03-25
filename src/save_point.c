@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:32:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/12 16:35:03 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/25 00:54:01 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ static t_map	count_line(char *line, t_map map)
 	i = 0;
 	map.size_lines = 0;
 	sep = ft_split(line, ' ');
-	while (i++, sep[i])
+	while (sep[i])
+	{
 		map.size_lines++;
+		i++;
+	}
 	return (map);
 }
 
@@ -65,7 +68,9 @@ t_map	stock_line(char *src, t_map map)
 		y++;
 		line = get_next_line(fd);
 		if (!line)
+		{
 			break;
+		}
 		map = read_line(line, map, y);
 		free(line);
 	}

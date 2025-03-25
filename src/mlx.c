@@ -6,15 +6,15 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:55:22 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/03 16:52:26 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:56:06 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	mlx_start(t_data data, t_img_data img)
+void	mlx_start(t_data data, t_img_data img, char *str)
 {
-	data.win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "Fil De Fer");
+	data.win = mlx_new_window(data.mlx, WIDTH, HEIGHT, str);
 	if (!data.win)
 	{
 		mlx_destroy_display(data.mlx);
