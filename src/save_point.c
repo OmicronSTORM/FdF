@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:32:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/25 00:54:01 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:27:06 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static t_map	count_line(char *line, t_map map)
 	sep = ft_split(line, ' ');
 	while (sep[i])
 	{
+		map.caract++;
 		map.size_lines++;
 		i++;
 	}
@@ -85,6 +86,7 @@ t_map	stock_point(char *src)
 	t_map	map;
 
 	map.nbr_lines = 0;
+	map.caract = 0;
 	line = NULL;
 	fd = open(src, O_RDONLY);
 	while (1)

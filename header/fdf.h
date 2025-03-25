@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:21 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/25 14:56:32 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:22:53 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct	s_map
 	int		y_max;
 	int		x_min;
 	int		y_min;
+	int		caract;
 }		t_map;
 
 int		handle_intput(int keysym, t_data *data);
