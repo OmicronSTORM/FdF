@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:55:22 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/28 19:05:11 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/28 22:30:16 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ void	mlx_start(t_data data, char *str)
 	}
 	mlx_put_image_to_window(data.mlx, data.win, data.img, 0, 0);
 	mlx_key_hook(data.win, handle_intput, &data);
+	mlx_hook(data.win, 17, 0, close_window, &data);
 	mlx_loop(data.mlx);
 }

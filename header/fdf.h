@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:21 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/28 20:34:17 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/28 22:22:11 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ t_map	stock_point(char *src);
 void	place_pixel(t_data *data, int x, int y);
 void	drawline(t_data *img, t_map info);
 void	mlx_start(t_data data, char *str);
+int		close_window(t_data *data);
 int		check(char **av);
 void	ft_projection(t_map *info);
 
