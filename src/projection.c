@@ -6,27 +6,26 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:31:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/25 18:07:45 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/26 17:24:13 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_project_iso(t_dot *point, int scale)
+void	ft_project_iso(t_dot *p, int scale)
 {
-	point->projected_x = (point->x - point->y) * cos(0.523599) * scale;
-	point->projected_y = (point->x + point->y) * sin(0.523599) * scale - point->z * scale;
-	point->projected_x += WIDTH / 4;
-	point->projected_y += HEIGHT / 3.5;
+	p->projected_x = (p->x - p->y) * cos(0.523599) * scale;
+	p->projected_y = (p->x + p->y) * sin(0.523599) * scale - (p->z * scale);
+	p->projected_x += WIDTH / 4;
+	p->projected_y += HEIGHT / 3.5;
 }
 
 void	ft_compute_scale(t_map *info)
 {
 	t_projection	proj;
-	
+
 	proj.x_range = info->x_max - info->x_min;
 	proj.y_range = info->y_max - info->y_min;
-
 	if (proj.x_range == 0)
 		proj.x_range = 1;
 	if (proj.y_range == 0)
@@ -57,7 +56,6 @@ void	ft_size(t_map *info)
 			info->y_max = info->point[i].projected_y;
 		i++;
 	}
-	// ft_extend(info);
 }
 
 void	ft_rescale_point(t_map *info)
@@ -70,8 +68,10 @@ void	ft_rescale_point(t_map *info)
 	proj.center_y = (info->y_max + info->y_min) / 2;
 	while (i < info->total_points)
 	{
-		info->point[i].projected_x = WIDTH / 2.4 + (info->point[i].projected_x - proj.center_x);
-		info->point[i].projected_y = HEIGHT / 2.6 + (info->point[i].projected_y - proj.center_y);
+		info->point[i].projected_x = WIDTH / 2.4
+			+ (info->point[i].projected_x - proj.center_x);
+		info->point[i].projected_y = HEIGHT / 2.6
+			+ (info->point[i].projected_y - proj.center_y);
 		i++;
 	}
 }

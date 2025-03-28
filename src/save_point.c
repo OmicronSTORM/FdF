@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:32:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/25 18:27:06 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/28 17:18:49 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ static t_map	count_line(char *line, t_map map)
 		map.size_lines++;
 		i++;
 	}
+	i = 0;
+	while (sep[i])
+		free(sep[i++]);
+	free(sep);
 	return (map);
 }
 
@@ -50,6 +54,10 @@ static t_map	read_line(char *line, t_map map, int y)
 		i++;
 		j++;
 	}
+	i = 0;
+	while (sep[i])
+		free(sep[i++]);
+	free(sep);
 	return (map);
 }
 
@@ -62,21 +70,24 @@ t_map	stock_line(char *src, t_map map)
 	y = 0;
 	fd = open(src, O_RDONLY);
 	map.total_points = map.size_lines * map.nbr_lines;
-	map.point = malloc(sizeof(char *) * map.total_points);
+	map.point = malloc(sizeof(t_dot) * (map.total_points));
+	if (!map.point)
+	{
+		close(fd);
+		exit(EXIT_FAILURE);
+	}
 	line = NULL;
 	while (1)
 	{
 		y++;
 		line = get_next_line(fd);
 		if (!line)
-		{
-			break;
-		}
+			break ;
 		map = read_line(line, map, y);
 		free(line);
+		line = NULL;
 	}
-	close(fd);
-	return (map);
+	return (close(fd), map);
 }
 
 t_map	stock_point(char *src)
@@ -93,10 +104,11 @@ t_map	stock_point(char *src)
 	{
 		line = get_next_line(fd);
 		if (!line)
-			break;
+			break ;
 		map = count_line(line, map);
 		map.nbr_lines++;
 		free(line);
+		line = NULL;
 	}
 	close(fd);
 	map = stock_line(src, map);

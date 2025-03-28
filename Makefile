@@ -6,13 +6,13 @@
 #    By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:26:39 by jowoundi          #+#    #+#              #
-#    Updated: 2025/03/24 18:02:43 by jowoundi         ###   ########.fr        #
+#    Updated: 2025/03/28 20:30:51 by jowoundi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3#-fsanitize=address -g3
 GREEN   = "\\033[32m"
 YELLOW	= "\\033[33m"
 NC      = "\\033[0m"

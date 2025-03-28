@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:21 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/25 18:22:53 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/28 20:34:17 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,24 @@
 # include <string.h>
 # include <unistd.h>
 
-typedef struct	s_mlx_data
+typedef struct s_data
 {
 	void	*mlx;
 	void	*win;
-}		t_data;
-
-typedef struct	s_img_data
-{
 	void	*img;
 	char	*address;
 	int		bits_per_pixel;
 	int		line_lenght;
 	int		endian;
-}		t_img_data;
+}		t_data;
 
-typedef struct	s_dot
+typedef struct s_node
+{
+	char			*line;
+	struct s_node	*next;
+}		t_node;
+
+typedef struct s_dot
 {
 	int	x;
 	int	y;
@@ -62,8 +64,7 @@ typedef struct s_projection
 	float	y_range;
 }		t_projection;
 
-
-typedef struct	s_map
+typedef struct s_map
 {
 	int		size_lines;
 	int		nbr_lines;
@@ -82,9 +83,9 @@ typedef struct	s_map
 
 int		handle_intput(int keysym, t_data *data);
 t_map	stock_point(char *src);
-void	place_pixel(t_img_data *data, int x, int y);
-void	drawline(t_img_data *img, t_map info);
-void	mlx_start(t_data data, t_img_data img, char *);
+void	place_pixel(t_data *data, int x, int y);
+void	drawline(t_data *img, t_map info);
+void	mlx_start(t_data data, char *str);
 int		check(char **av);
 void	ft_projection(t_map *info);
 
