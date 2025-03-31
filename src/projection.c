@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:31:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/03/26 17:24:13 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/03/29 00:58:22 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ void	ft_rescale_point(t_map *info)
 	proj.center_y = (info->y_max + info->y_min) / 2;
 	while (i < info->total_points)
 	{
-		info->point[i].projected_x = WIDTH / 2.4
+		info->point[i].projected_x = WIDTH / 2.1
 			+ (info->point[i].projected_x - proj.center_x);
-		info->point[i].projected_y = HEIGHT / 2.6
+		info->point[i].projected_y = HEIGHT / 2.7
 			+ (info->point[i].projected_y - proj.center_y);
 		i++;
 	}
