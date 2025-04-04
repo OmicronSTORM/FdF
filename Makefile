@@ -6,7 +6,7 @@
 #    By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:26:39 by jowoundi          #+#    #+#              #
-#    Updated: 2025/03/28 20:30:51 by jowoundi         ###   ########.fr        #
+#    Updated: 2025/04/04 13:22:10 by jowoundi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,9 @@ $(NAME): $(LIBFT) $(MINILIB) $(OBJS)
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR) -s
+
+$(MINILIB):
+	@make -C $(MINILIBX_DIR) -s
 
 clean:
 	@rm -rf $(OBJ_DIR)
