@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:21 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/04/01 14:53:26 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:54:21 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ void	mlx_start(t_data data, char *str);
 int		close_window(t_data *data);
 int		check(char **av);
 void	ft_projection(t_map *info);
+void	error_fd();
 
 #endif

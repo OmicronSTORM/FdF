@@ -6,7 +6,7 @@
 /*   By: jowoundi <jowoundi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:32:49 by jowoundi          #+#    #+#             */
-/*   Updated: 2025/04/01 14:53:22 by jowoundi         ###   ########.fr       */
+/*   Updated: 2025/04/11 12:54:37 by jowoundi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ t_map	stock_point(char *src)
 	map.caract = 0;
 	line = NULL;
 	fd = open(src, O_RDONLY);
+	if (fd == -1)
+		error_fd();
 	while (1)
 	{
 		line = get_next_line(fd);
